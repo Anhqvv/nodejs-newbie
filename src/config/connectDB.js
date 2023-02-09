@@ -1,4 +1,4 @@
-import mysql from 'mysql2'
+import mysql from 'mysql2/promise'
 
 // create the connection to database
 const connection = mysql.createPool({
@@ -13,9 +13,9 @@ const connection = mysql.createPool({
 })
 
 // simple query
-// connection.query('SELECT * FROM Users u  ', function (err, results, fields) {
-//   console.log('Checking DB')
+// const [results, fields] = connection.query(
+//   'SELECT * FROM Users u  ',
 //   console.log(results) // results contains rows returned by server
-// })
+// )
 
 export default connection
