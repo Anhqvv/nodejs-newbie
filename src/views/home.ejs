@@ -12,11 +12,10 @@
       <a class="active" href="/">Home</a>
       <a href="/create">Create Users</a>
     </div>
-    <div>
+    <div class="table-container">
       <h2>List Users</h2>
-      <%= JSON.stringify(listUsers)%>
 
-      <table class="table-container">
+      <table>
         <tr>
           <th>ID</th>
           <th>Email</th>
@@ -24,16 +23,18 @@
           <th>City</th>
           <th>Actions</th>
         </tr>
+        <% listUsers.forEach(function(user) { %>
         <tr>
-          <td>Peter</td>
-          <td>Griffin</td>
-          <td>$100</td>
-          <td>Hue</td>
+          <td><%=user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.city %></td>
           <td>
-            <button>Edit</button>
-            <button>Delete</button>
+            <a href="/update/<%= user.id %>">Edit</a>
+            <a href="/delete/<%= user.id %>">Delete</a>
           </td>
         </tr>
+        <% }); %>
       </table>
     </div>
   </body>

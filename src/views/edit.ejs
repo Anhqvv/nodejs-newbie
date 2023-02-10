@@ -1,0 +1,87 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update User</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav a.active {
+        background-color: #04aa6d;
+        color: white;
+      }
+
+      .form-add-new {
+        margin: 0 auto;
+        padding: 100px;
+        width: 500px;
+      }
+      .d-none {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/">Create User</a>
+    </div>
+    <form class="form-add-new" action="/update-user" method="POST">
+      <fieldset>
+        <legend>Update User:</legend>
+        <div class="d-none">
+          <label>Id:</label>
+          <input
+            type="text"
+            name="userId"
+            value=" <%= userEdit.id %>"
+          /><br /><br />
+        </div>
+
+        <label>Email:</label>
+        <input
+          type="email"
+          name="email"
+          value=" <%= userEdit.email %>"
+        /><br /><br />
+        <label>Name:</label>
+        <input
+          type="text"
+          name="name"
+          value=" <%= userEdit.name %>"
+        /><br /><br />
+        <label>City:</label>
+        <input
+          type="text"
+          name="city"
+          value=" <%= userEdit.city %>"
+        /><br /><br />
+        <button>Save</button>
+      </fieldset>
+    </form>
+  </body>
+</html>
