@@ -1,5 +1,11 @@
 import connection from '../config/connectDB'
 
+const postCreateNewUser = async (email, name, city) => {
+  const [results, fields] = await connection.query(
+    `INSERT INTO Users (email, name, city) VALUES (?,?,?)`,
+    [email, name, city]
+  )
+}
 const getAllUsers = async () => {
   const [results, fields] = await connection.query('select * from Users')
   return results
@@ -20,10 +26,10 @@ const UpdateUserById = async (email, name, city, userId) => {
     WHERE id = ?`,
     [email, name, city, userId]
   )
-  return
+  return results
 }
 
-const deleteUserById =  async(userId) => {
+const deleteUserById = async userId => {
   const [results, fields] = await connection.query(
     `  DELETE FROM Users WHERE id = ?`,
     [userId]
@@ -33,5 +39,6 @@ module.exports = {
   getAllUsers,
   getUserById,
   UpdateUserById,
-  deleteUserById
+  deleteUserById,
+  postCreateNewUser
 }
